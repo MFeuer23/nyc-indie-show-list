@@ -1,0 +1,13 @@
+<%= form_for @user do |f| %>
+  <%= f. label :name %>
+  <%= f.text_field :name %><br>
+  <%= f.label :genre %>
+  <%= f.text_field :genre %><br>
+  <%= f.label :bio, "1-2 sentence bio" %>
+  <%= f.text_field :bio %><br>
+  <%= f.label :picture %>
+  <%= f.file_field :picture %> <br>
+  <%= f.label :password %>
+  <%= f.password_field :password %><br>
+  <%= f. submit %>
+<% end %>
