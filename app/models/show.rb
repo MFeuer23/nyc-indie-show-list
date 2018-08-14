@@ -1,4 +1,5 @@
 class Show < ApplicationRecord
-  belongs_to :artists
-  belongs_to :venues
+  has_many :bookings
+  has_many :artists, through: :bookings
+  belongs_to :venue
 end

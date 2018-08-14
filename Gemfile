@@ -19,11 +19,13 @@ gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
+# devise
+
+gem 'devise'
 
 # bootstrap
 
 gem 'bootstrap-sass', '3.3.7'
-gem 'bootstrap'
 gem 'jquery-rails'
 
 # Use CoffeeScript for .coffee assets and views
