@@ -9,7 +9,7 @@ Devise.setup do |config|
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
   # config.secret_key = '0983b8fe38a80e9ff3b5944e9c4c0ddd764cd02c0f648d71ca687ddbac8b733935f33f84965e67402aa0ed7c8d36e17334fdc3e29a02d9e7220731291fcc2c5f'
-  
+
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
   # config.parent_controller = 'DeviseController'
@@ -254,6 +254,9 @@ Devise.setup do |config|
   config.sign_out_via = :delete
 
   # ==> OmniAuth
+
+  config.omniauth :facebook, "1016683098510410", "f3abb532878f470efe2ed52bae108310"
+
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
