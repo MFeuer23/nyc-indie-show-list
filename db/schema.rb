@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_14_173743) do
+ActiveRecord::Schema.define(version: 2018_08_15_175658) do
 
   create_table "artists", force: :cascade do |t|
     t.string "name"
@@ -34,20 +34,13 @@ ActiveRecord::Schema.define(version: 2018_08_14_173743) do
     t.index ["reset_password_token"], name: "index_artists_on_reset_password_token", unique: true
   end
 
-  create_table "bookings", force: :cascade do |t|
-    t.integer "artist_id"
-    t.integer "show_id"
-    t.string "booking_contact"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "shows", force: :cascade do |t|
     t.integer "venue_id"
     t.date "date"
     t.string "info"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "artist_id"
   end
 
   create_table "venues", force: :cascade do |t|

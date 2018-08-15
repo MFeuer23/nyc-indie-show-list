@@ -4,8 +4,8 @@ class Artist < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, omniauth_providers: %i[facebook]
-  has_many :bookings
-  has_many :shows, through: :bookings
+  has_many :shows
+  has_many :venues, through: :shows
 
 
   def self.from_omniauth(auth)
