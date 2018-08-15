@@ -9,6 +9,7 @@ class ShowsController < ApplicationController
   end
 
   def new
+      @show = Show.new(artist_id: params[:artist_id])
   end
 
 end

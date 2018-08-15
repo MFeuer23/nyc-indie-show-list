@@ -1,1 +1,9 @@
 artist profile!
+<h1><%= @artist.name %></h1>
+
+<%= link_to "New Show", new_artist_show_path(@artist) %>
+
+<p>Shows:</p>
+<% @artist.shows.each do |show| %>
+  <div><%= show.date %></div>
+<% end %>
