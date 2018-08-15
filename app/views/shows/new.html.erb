@@ -10,7 +10,7 @@
 
 
   <%= f.label :venue, "Select An Existing Venue" %><br>
-  <%= f.collection_select :venue_id, Venue.all, :id, :name %><br><br>
+  <%= f.collection_select :venue_id, Venue.all, :id, :name, :include_blank => true %><br><br>
 
   <p>Or Create a New Venue</p>
   <%= fields_for :venue, @show.venue do |v| %>
