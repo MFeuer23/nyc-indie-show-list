@@ -1,9 +1,30 @@
-new show form
+<h1>Post a New Show</h1>
  <%= form_for(@show) do |f| %>
-  <%= f.label :venue %>
-  <%= f.text_area :venue %>
+ <%= f.hidden_field :artist_id %>
 
   <%= f.label :date %>
-  <%= f.text_area :date %>
+  <%= f.text_field :date %><br>
+
+  <%= f.label :info %>
+  <%= f.text_field :info %><br>
+
+
+  <%= f.label :venue, "Select An Existing Venue" %><br>
+  <%= f.collection_select :venue_id, Venue.all, :id, :name %><br><br>
+
+  <p>Or Create a New Venue</p>
+  <%= fields_for :venue, @show.venue do |v| %>
+    <%= v.label :name %>
+    <%= v.text_field :name %><br>
+
+    <%= v.label :address %>
+    <%= v.text_field :address %><br>
+
+    <%= v.label :contact %>
+    <%= v.text_field :contact %><br>
+
+  <% end %>
+
+  <%= f.submit %>
 
  <% end %>
