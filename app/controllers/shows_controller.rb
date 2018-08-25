@@ -15,7 +15,6 @@ class ShowsController < ApplicationController
   def create
 
     @show = Show.new(show_params)
-    @show.date = Date.parse("#{params.require(:show).permit(:date)}")
     if @show.venue_id
       @show.save
     else
@@ -26,6 +25,9 @@ class ShowsController < ApplicationController
     redirect_to show_path(@show)
   end
 
+def show
+  @show = Show.find(params[:id])
+end
 
   private
 

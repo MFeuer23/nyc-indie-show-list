@@ -1,1 +1,4 @@
-show show page
+<h3>Show at <%= @show.venue.name %></h3>
+<p>Date: <%= @show.date.strftime("%B %d, %Y") %></p>
+<p>Info: <%= @show.info %></p>
+<p>Location: <%= @show.venue.address %></p>
