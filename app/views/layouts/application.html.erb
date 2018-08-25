@@ -26,10 +26,12 @@
 
         <p class="navbar-text">
           <% if artist_signed_in? %>
-            Logged in as <strong><%= current_artist.email %></strong>. |
-            <%= link_to('Edit profile', edit_artist_registration_path, :class => 'navbar-link') %> |
-            <%= link_to('View profile', artist_path(current_artist), :class => 'navbar-link') %> |
+            Logged in as <strong><%= current_artist.name %></strong>. <br>|
             <%= link_to('Home', root_path, :class => 'navbar-link') %>  |
+            <%= link_to('View profile', artist_path(current_artist), :class => 'navbar-link') %> |
+            <%= link_to('Edit profile', edit_artist_path(current_artist), :class => 'navbar-link') %> |
+
+            <%= link_to('Change Password', edit_artist_registration_path, :class => 'navbar-link') %> |
         <br>
             <%= button_to('Logout', destroy_artist_session_path, :method => :delete, :class => 'well')%>
           <% else %>

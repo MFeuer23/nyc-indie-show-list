@@ -1,9 +1,15 @@
-artist profile!
 <h1><%= @artist.name %></h1>
-<%= link_to "Edit Artist Info", edit_artist_path(@artist)%>
-<%= link_to "New Show", new_artist_show_path(@artist) %>
 
-<p>Shows:</p>
+<b>Bio: </b><%= @artist.bio %> <br>
+<b>Genre: </b><%= @artist.genre %>
+<br><br>
+<%= link_to "Edit Artist Info", edit_artist_path(@artist)%> <br>
+<%= link_to "Enter New Show", new_artist_show_path(@artist) %>
+<br><br>
+
+<b>Shows:</b>
+<ul>
 <% @artist.shows.each do |show| %>
-  <div><%= show.date %></div>
+  <li><%= link_to "#{show.date.strftime("%B %d, %Y")} at #{show.venue.name}", show_path(show) %></li>
 <% end %>
+</ul>
