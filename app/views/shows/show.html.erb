@@ -1,4 +1,4 @@
-<h3>Show at <%= @show.venue.name %></h3>
-<p>Date: <%= @show.date.strftime("%B %d, %Y") %></p>
-<p>Info: <%= @show.info %></p>
-<p>Location: <%= @show.venue.address %></p>
+<h3> <%= @show.artist.name %>'s Show at <%= @show.venue.name %></h3>
+<p><b>Date: </b><%= @show.date.strftime("%B %d, %Y") %></p>
+<p><b>Info: </b><%= @show.info %></p>
+<p><b>Location: </b><%= @show.venue.address %></p>

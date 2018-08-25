@@ -1,0 +1,23 @@
+<h1>Edit Artist Info</h1>
+
+<%= form_for @artist do |f| %>
+
+  <div class="field">
+    <%= f.label :name, "Artist Name"%><br>
+    <%= f.text_field :name, placeholder: "#{@artist.name}" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :bio, "1-2 Sentence Bio"%><br>
+    <%= f.text_field :bio, placeholder: "#{@artist.bio}" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :genre %><br>
+    <%= f.text_field :genre, placeholder: "#{@artist.genre}" %>
+  </div>
+  <br>
+
+  <%= f.submit %>
+
+<% end %>

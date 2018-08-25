@@ -1,6 +1,6 @@
 artist profile!
 <h1><%= @artist.name %></h1>
-
+<%= link_to "Edit Artist Info", edit_artist_path(@artist)%>
 <%= link_to "New Show", new_artist_show_path(@artist) %>
 
 <p>Shows:</p>
