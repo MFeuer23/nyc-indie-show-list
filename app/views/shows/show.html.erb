@@ -2,3 +2,5 @@
 <p><b>Date: </b><%= @show.date.strftime("%B %d, %Y") %></p>
 <p><b>Info: </b><%= @show.info %></p>
 <p><b>Location: </b><%= @show.venue.address %></p>
+<br><br>
+<%= link_to "Edit Show Info", edit_show_path(@show)%>
