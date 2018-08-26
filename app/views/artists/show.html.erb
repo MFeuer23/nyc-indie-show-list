@@ -10,6 +10,6 @@
 <b>Shows:</b>
 <ul>
 <% @artist.shows.each do |show| %>
-  <li><%= link_to "#{show.date.strftime("%B %d, %Y")} at #{show.venue.name}", show_path(show) %></li>
+  <li><%= link_to "#{show.date.strftime("%B %d, %Y")} at #{show.venue.name}", artist_show_path(@artist, show) %></li>
 <% end %>
 </ul>

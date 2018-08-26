@@ -3,4 +3,4 @@
 <p><b>Info: </b><%= @show.info %></p>
 <p><b>Location: </b><%= @show.venue.address %></p>
 <br><br>
-<%= link_to "Edit Show Info", edit_show_path(@show)%>
+<%= link_to "Edit Show Info", edit_artist_show_path(@show.artist, @show)%>
