@@ -46,7 +46,15 @@ class ShowsController < ApplicationController
     end
     redirect_to show_path(@show)
   end
-  
+
+  def destroy
+
+    @show = Show.find(params[:id])
+    @artist = @show.artist
+    @show.destroy
+    redirect_to artist_path(@artist)
+  end
+
   private
 
   def show_params
