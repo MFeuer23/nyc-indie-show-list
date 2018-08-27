@@ -1,10 +1,10 @@
 <h3> Shows Tonight </h3>
 
 <br>
-<form class="form-inline my-2 my-lg-0">
-  <input class="form-control mr-sm-2" type="search" placeholder="Search Artists" aria-label="Search">
-  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-</form>
+<%= form_tag(artists_search_path) do %>
+  <%= text_field_tag :name, "Enter Artist Name" %>
+  <%= submit_tag 'Search' %>
+<% end %>
 <br>
 <p>Show Calendar</p>
 <p>- browse venues</p>

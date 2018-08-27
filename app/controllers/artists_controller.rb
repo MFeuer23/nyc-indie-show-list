@@ -3,6 +3,9 @@ class ArtistsController < ApplicationController
   def index
   end
 
+  def search
+  end
+
   def show
     @artist = Artist.find(params[:id])
     @shows = @artist.shows.order(date: :asc)
