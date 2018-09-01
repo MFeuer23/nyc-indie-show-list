@@ -18,13 +18,16 @@ class ArtistsController < ApplicationController
     @shows = @artist.shows.order(date: :asc)
     @past = []
     @upcoming = []
-    @artist.shows.each do |show|
-      if show.date < Date.today
-        @past << show
-      else
+
+    @shows.each do |show|
+      if show.date >= Date.today
         @upcoming << show
+      else
+        @past << show
       end
     end
+
+    @venues = @artist.venues.order(name: :asc)
   end
 
   def edit
