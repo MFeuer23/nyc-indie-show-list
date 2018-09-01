@@ -27,7 +27,7 @@ class ArtistsController < ApplicationController
       end
     end
 
-    @venues = @artist.venues.order(name: :asc)
+    @venues = @artist.venues.order(name: :asc).uniq
   end
 
   def edit
