@@ -16,6 +16,15 @@ class ArtistsController < ApplicationController
   def show
     @artist = Artist.find(params[:id])
     @shows = @artist.shows.order(date: :asc)
+    @past = []
+    @upcoming = []
+    @artist.shows.each do |show|
+      if show.date < Date.today
+        @past << show
+      else
+        @upcoming << show
+      end
+    end
   end
 
   def edit

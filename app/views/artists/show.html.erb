@@ -10,6 +10,21 @@
 <b>Shows:</b>
 <ul>
 <% @shows.each do |show| %>
+
+  <li><%= link_to "#{show.date.strftime("%B %d, %Y")} at #{show.venue.name}", artist_show_path(@artist, show) %></li>
+<% end %>
+</ul>
+
+<b>Upcoming Shows:</b>
+<ul>
+<% @upcoming.each do |show| %>
+  <li><%= link_to "#{show.date.strftime("%B %d, %Y")} at #{show.venue.name}", artist_show_path(@artist, show) %></li>
+<% end %>
+</ul>
+
+<b>Past Shows:</b>
+<ul>
+<% @past.each do |show| %>
   <li><%= link_to "#{show.date.strftime("%B %d, %Y")} at #{show.venue.name}", artist_show_path(@artist, show) %></li>
 <% end %>
 </ul>

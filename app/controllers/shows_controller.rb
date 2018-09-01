@@ -19,7 +19,7 @@ class ShowsController < ApplicationController
       @show.save
     else
       @venue = Venue.create(venue_params)
-      @show.venue_id = @venue_id
+      @show.venue_id = @venue.id
       @show.save
     end
     redirect_to show_path(@show)
@@ -41,7 +41,7 @@ class ShowsController < ApplicationController
       @show.save
     else
       @venue = Venue.create(venue_params)
-      @show.venue_id = @venue_id
+      @show.venue_id = @venue.id
       @show.save
     end
     redirect_to show_path(@show)
