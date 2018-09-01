@@ -3,3 +3,8 @@ Address: <b><%= @venue.address %></b><br>
 Contact: <b><%= @venue.contact %></b>
 
 <br>
+<br>
+<br>
+<%= link_to "Edit Venue Info", edit_venue_path(@venue)%> <br>
+<%= link_to "Go Back to Profile", artist_path(current_artist)%>
+<%= button_to('Delete Venue', venue_path(@venue), :method => :delete, :class => 'well')%>

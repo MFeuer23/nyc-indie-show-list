@@ -1,0 +1,15 @@
+<h1> Edit Venue Info </h1>
+<br>
+
+<%= form_for @venue do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %><br>
+  <%= f.label :address %>
+  <%= f.text_field :address %><br>
+  <%= f.label :contact %>
+  <%= f.text_field :contact %><br><br>
+  <%= f.submit %>
+<% end %>
+
+<%= button_to('Delete Venue', venue_path(@venue), :method => :delete, :class => 'well')%>
+<%= link_to "Go Back to Profile", artist_path(current_artist)%>
