@@ -2,7 +2,7 @@
 
 <br>
 <%= form_tag(artists_search_path) do %>
-  <%= text_field_tag :name, "Enter Artist Name" %>
+  <%= text_field_tag :name, nil, placeholder: 'Enter Artist Name' %>
   <%= submit_tag 'Search' %>
 <% end %>
 <br>

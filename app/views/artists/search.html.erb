@@ -4,3 +4,12 @@
     <br> <%= link_to "#{artist.name}", artist_path(artist) %>
   <% end %>
 <% end %>
+<br>
+<br>
+<br>
+<br>
+<h3>Search Again</h3>
+<%= form_tag(artists_search_path) do %>
+  <%= text_field_tag :name, nil, placeholder: 'Enter Artist Name' %>
+  <%= submit_tag 'Search' %>
+<% end %>
