@@ -4,10 +4,10 @@ class ArtistsController < ApplicationController
   end
 
   def search
-  
+
     @artist = Artist.all.collect do |artist|
       if artist.name.downcase.include?(params[:name].downcase)
-        artist.name
+        artist
       end
 
     end

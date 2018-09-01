@@ -1,5 +1,6 @@
 <h1> Search Results </h1>
-<%= @artist.collect do |artist|%>
-
-  <br> <%= artist %>
+<% @artist.each do |artist|%>
+  <% if artist %>
+    <br> <%= link_to "#{artist.name}", artist_path(artist) %>
+  <% end %>
 <% end %>
