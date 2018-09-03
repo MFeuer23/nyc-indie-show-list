@@ -23,12 +23,16 @@ class VenuesController < ApplicationController
 
   def edit
     @venue = Venue.find(params[:id])
+
   end
 
   def update
     @venue = Venue.find(params[:id])
-    @venue.update(venue_params)
-    redirect_to venue_path(@venue)
+    if @venue.update(venue_params)
+      redirect_to venue_path(@venue)
+    else
+      render :edit
+    end
   end
 
   def destroy

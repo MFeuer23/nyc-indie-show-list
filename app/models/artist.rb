@@ -6,7 +6,7 @@ class Artist < ApplicationRecord
          :omniauthable, omniauth_providers: %i[facebook]
   has_many :shows
   has_many :venues, through: :shows
-
+  validates :email, uniqueness: true
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |artist|
