@@ -29,15 +29,8 @@
   <%= f.collection_select :venue_id, Venue.all, :id, :name, :include_blank => true %><br><br>
 
   <p>Or Create a New Venue</p>
-  <%= fields_for :venue, @show.venue do |v| %>
-    <%= v.label :name %>
-    <%= v.text_field :name %><br>
-
-    <%= v.label :address %>
-    <%= v.text_field :address %><br>
-
-    <%= v.label :contact %>
-    <%= v.text_field :contact %><br>
+  <%= fields_for :venue, @show.venue do |f| %>
+    <%= render "venues/form", f: f %>
 
   <% end %>
 

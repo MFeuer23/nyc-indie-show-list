@@ -17,13 +17,7 @@
 <% end %>
  <br>
 <%= form_for @venue do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %><br>
-  <%= f.label :address %>
-  <%= f.text_field :address %><br>
-  <%= f.label :contact %>
-  <%= f.text_field :contact %><br><br>
-  <%= f.submit %>
+  <%= render "venues/form", f: f %>
 <% end %>
 
 <%= button_to('Delete Venue', venue_path(@venue), :method => :delete, :class => 'well')%>
