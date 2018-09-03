@@ -4,6 +4,27 @@ Contact: <b><%= @venue.contact %></b>
 
 <br>
 <br>
+<b>Upcoming Shows:</b>
+<ul>
+<% @upcoming.each do |show| %>
+  <li><%= link_to "#{show.date.strftime("%B %d, %Y")} at #{show.venue.name}", show_path(show) %></li>
+<% end %>
+</ul>
+
+<b>Past Shows:</b>
+<ul>
+<% @past.each do |show| %>
+  <li><%= link_to "#{show.date.strftime("%B %d, %Y")} at #{show.venue.name}", show_path(show) %></li>
+<% end %>
+</ul>
+
+<b>Artists Who Have Played Here:</b>
+<ul>
+<% @artists.each do |artist| %>
+  <li><%= link_to "#{artist.name}", artist_path(artist) %></li>
+<% end %>
+</ul>
+
 <br>
 <%= link_to "Edit Venue Info", edit_venue_path(@venue)%> <br>
 <%= link_to "Go Back to Profile", artist_path(current_artist)%>

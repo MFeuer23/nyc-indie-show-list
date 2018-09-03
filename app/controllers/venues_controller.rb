@@ -6,6 +6,19 @@ class VenuesController < ApplicationController
 
   def show
     @venue = Venue.find(params[:id])
+    @shows = @venue.shows.order(date: :asc)
+    @past = []
+    @upcoming = []
+
+    @shows.each do |show|
+      if show.date >= Date.today
+        @upcoming << show
+      else
+        @past << show
+      end
+    end
+
+    @artists = @venue.artists
   end
 
   def edit
