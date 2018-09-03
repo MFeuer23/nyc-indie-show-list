@@ -2,11 +2,6 @@
 
 <% if @venue.errors.any? %>
   <div id="error_explanation">
-    <h2>
-      <%= pluralize(@venue.errors.count, "error") %>
-      prohibited this post from being updated:
-    </h2>
-
     <ul>
     <% @venue.errors.full_messages.each do |msg| %>
       <li><%= msg %></li>
@@ -31,7 +26,6 @@
   <p>Or Create a New Venue</p>
   <%= fields_for :venue, @show.venue do |f| %>
     <%= render "venues/form", f: f %>
-
   <% end %>
 
   <%= f.submit %>

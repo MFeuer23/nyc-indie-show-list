@@ -1,5 +1,15 @@
 <h1>Edit Show Info</h1>
 
+<% if @venue.errors.any? %>
+  <div id="error_explanation">
+    <ul>
+    <% @venue.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <%= form_for(@show) do |f| %>
 <%= f.hidden_field :artist_id %>
 
@@ -15,15 +25,7 @@
 
  <p>Or Create a New Venue</p>
  <%= fields_for :venue, @show.venue do |v| %>
-   <%= v.label :name %>
-   <%= v.text_field :name %><br>
-
-   <%= v.label :address %>
-   <%= v.text_field :address %><br>
-
-   <%= v.label :contact %>
-   <%= v.text_field :contact %><br>
-
+    <%= render "venues/form", f: f %>
  <% end %>
 
  <%= f.submit %>
