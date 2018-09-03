@@ -1,5 +1,21 @@
 <h1>Post a New Show</h1>
- <%= form_for(@show) do |f| %>
+
+<% if @venue.errors.any? %>
+  <div id="error_explanation">
+    <h2>
+      <%= pluralize(@venue.errors.count, "error") %>
+      prohibited this post from being updated:
+    </h2>
+
+    <ul>
+    <% @venue.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_for(@show) do |f| %>
  <%= f.hidden_field :artist_id %>
 
   <%= f.label :date %>
@@ -27,4 +43,4 @@
 
   <%= f.submit %>
 
- <% end %>
+<% end %>

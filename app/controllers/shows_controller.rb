@@ -6,6 +6,7 @@ class ShowsController < ApplicationController
 
   def new
       @show = Show.new(artist_id: params[:artist_id])
+      @venue = Venue.new
   end
 
   def create
@@ -13,12 +14,17 @@ class ShowsController < ApplicationController
     @show = Show.new(show_params)
     if @show.venue_id
       @show.save
+      redirect_to show_path(@show)
     else
-      @venue = Venue.create(venue_params)
-      @show.venue_id = @venue.id
-      @show.save
+      if @venue = Venue.create(venue_params)
+        @show.venue_id = @venue.id
+        @show.save
+        redirect_to show_path(@show)
+      else
+        render :new
+      end
     end
-    redirect_to show_path(@show)
+
   end
 
   def show
