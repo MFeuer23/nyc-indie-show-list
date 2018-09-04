@@ -4,6 +4,21 @@ class VenuesController < ApplicationController
     @venues = Venue.all.order(name: :asc)
   end
 
+  def new
+    redirect_to venues_path unless artist_signed_in?
+    @venue = Venue.new
+  end
+
+  def create
+    redirect_to venues_path unless artist_signed_in?
+    @venue = Venue.new(venue_params)
+    if @venue.save
+      redirect_to venue_path(@venue)
+    else
+      render :edit
+    end
+  end
+
   def show
     @venue = Venue.find(params[:id])
     @shows = @venue.shows.order(date: :asc)
@@ -22,12 +37,8 @@ class VenuesController < ApplicationController
   end
 
   def edit
-    if artist_signed_in?
       @venue = Venue.find(params[:id])
-    else
-      redirect_to venue_path(@venue)
-    end
-
+      redirect_to venue_path(@venue) unless artist_signed_in?
   end
 
   def update

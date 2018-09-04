@@ -3,6 +3,7 @@
 <% @shows.each do |show| %>
   <% if show.date >= Date.today %>
     <%= link_to "#{show.date.strftime("%B %d, %Y")} -- #{show.artist.name} at #{show.venue.name}", show_path(show)%>
+    <br>
   <% end %>
 
 <% end  %>

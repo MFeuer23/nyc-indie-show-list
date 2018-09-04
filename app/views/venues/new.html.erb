@@ -1,0 +1,21 @@
+<h1> Enter New Venue </h1>
+<br>
+
+<% if @venue.errors.any? %>
+  <div id="error_explanation">
+    <ul>
+    <% @venue.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+ <br>
+<%= form_for @venue do |f| %>
+  <%= render "venues/form", f: f %>
+<% end %>
+
+<% if artist_signed_in? %>
+  <%= link_to "Go Back to Profile", artist_path(current_artist)%>
+<% end %>
