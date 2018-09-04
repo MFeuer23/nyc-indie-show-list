@@ -5,13 +5,15 @@ class ShowsController < ApplicationController
   end
 
   def new
-      @show = Show.new(artist_id: params[:artist_id])
-      @venue = Venue.new
+    @show = Show.new(artist_id: params[:artist_id])
+    redirect_to shows_path unless @show.artist == current_artist
+
+    @venue = Venue.new
   end
 
   def create
-
     @show = Show.new(show_params)
+    redirect_to show_path(@show) unless @show.artist == current_artist
     if @show.venue_id
       @show.save
       redirect_to show_path(@show)
@@ -33,10 +35,14 @@ class ShowsController < ApplicationController
 
   def edit
     @show = Show.find(params[:id])
+    redirect_to show_path(@show) unless @show.artist == current_artist
+
   end
 
   def update
     @show = Show.find(params[:id])
+    redirect_to show_path(@show) unless @show.artist == current_artist
+
     @show.update(show_params)
 
     if @show.venue_id

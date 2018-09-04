@@ -3,9 +3,12 @@
 
 <b>Bio: </b><%= @artist.bio %> <br>
 <b>Genre: </b><%= @artist.genre %>
+
+<% if @artist == current_artist %>
 <br><br>
-<%= link_to "Edit Artist Info", edit_artist_path(@artist)%> <br>
-<%= link_to "Enter New Show", new_artist_show_path(@artist) %>
+  <%= link_to "Edit Artist Info", edit_artist_path(@artist)%> <br>
+  <%= link_to "Enter New Show", new_artist_show_path(@artist) %>
+<% end %>
 <br><br>
 
 

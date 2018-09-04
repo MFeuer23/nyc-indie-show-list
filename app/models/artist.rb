@@ -7,9 +7,11 @@ class Artist < ApplicationRecord
   has_many :shows
   has_many :venues, through: :shows
   validates :email, uniqueness: true
+  validates :name, presence: true
+  
 
   mount_uploader :image, ImageUploader
-  
+
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |artist|
       artist.email = auth.info.email

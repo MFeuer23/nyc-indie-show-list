@@ -5,6 +5,7 @@ class Artists::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
     if @artist.persisted?
       sign_in_and_redirect @artist, event: :authentication #this will throw if @user is not activated
+      redirect_to edit_artist_path(@artist) unless @artist.name
       set_flash_message(:notice, :success, kind: "Facebook") if is_navigational_format?
     else
       session["devise.facebook_data"] = request.env["omniauth.auth"]

@@ -22,11 +22,16 @@ class VenuesController < ApplicationController
   end
 
   def edit
-    @venue = Venue.find(params[:id])
+    if artist_signed_in?
+      @venue = Venue.find(params[:id])
+    else
+      redirect_to venue_path(@venue)
+    end
 
   end
 
   def update
+    redirect_to venue_path(@venue) unless artist_signed_in?
     @venue = Venue.find(params[:id])
     if @venue.update(venue_params)
       redirect_to venue_path(@venue)
