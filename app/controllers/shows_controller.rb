@@ -1,5 +1,10 @@
 class ShowsController < ApplicationController
 
+
+  def tonight
+    @shows = Show.all.where("date =?", Date.today)
+  end
+
   def index
     @shows = Show.all.order(date: :asc)
   end
@@ -62,6 +67,8 @@ class ShowsController < ApplicationController
     @show.destroy
     redirect_to artist_path(@artist)
   end
+
+
 
   private
 
