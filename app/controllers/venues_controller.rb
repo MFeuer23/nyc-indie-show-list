@@ -15,7 +15,7 @@ class VenuesController < ApplicationController
     if @venue.save
       redirect_to venue_path(@venue)
     else
-      render :edit
+      render :new
     end
   end
 

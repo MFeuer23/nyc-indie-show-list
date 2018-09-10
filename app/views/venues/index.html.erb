@@ -3,3 +3,9 @@
 <% @venues.each do |venue| %>
   <%= link_to "#{venue.name}", venue_path(venue) %><br>
 <% end %>
+
+
+<% if artist_signed_in? %>
+<br><br>
+  <%= link_to "Enter New Venue", new_venue_path %>
+<% end %>
