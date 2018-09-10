@@ -48,17 +48,16 @@ class ShowsController < ApplicationController
 
     @show.update(show_params)
 
-    if @show.venue_id
-      @show.save
-    else
-      if @venue = Venue.create(venue_params)
+    if !@show.venue_id
+      @venue = Venue.create(venue_params)
         @show.venue_id = @venue.id
         @show.save
-      else
-        render :edit
       end
+    if @show.save
+      redirect_to show_path(@show)
+    else
+      render :edit
     end
-    redirect_to show_path(@show)
   end
 
   def destroy
