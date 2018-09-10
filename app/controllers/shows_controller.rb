@@ -18,18 +18,16 @@ class ShowsController < ApplicationController
 
   def create
     @show = Show.new(show_params)
-    redirect_to show_path(@show) unless @show.artist == current_artist
-    if @show.venue_id
-      @show.save
-      redirect_to show_path(@show)
-    else
-      if @venue = Venue.create(venue_params)
+    redirect_to shows_path unless @show.artist == current_artist
+    if !@show.venue_id
+      @venue = Venue.create(venue_params)
         @show.venue_id = @venue.id
         @show.save
-        redirect_to show_path(@show)
-      else
-        render :new
       end
+    if @show.save
+      redirect_to show_path(@show)
+    else
+      render :new
     end
 
   end
@@ -41,7 +39,7 @@ class ShowsController < ApplicationController
   def edit
     @show = Show.find(params[:id])
     redirect_to show_path(@show) unless @show.artist == current_artist
-
+    @venue = @show.venue
   end
 
   def update
@@ -53,9 +51,12 @@ class ShowsController < ApplicationController
     if @show.venue_id
       @show.save
     else
-      @venue = Venue.create(venue_params)
-      @show.venue_id = @venue.id
-      @show.save
+      if @venue = Venue.create(venue_params)
+        @show.venue_id = @venue.id
+        @show.save
+      else
+        render :edit
+      end
     end
     redirect_to show_path(@show)
   end

@@ -1,9 +1,9 @@
 <h1>Edit Show Info</h1>
 
-<% if @venue.errors.any? %>
+<% if @show.errors.any? %>
   <div id="error_explanation">
     <ul>
-    <% @venue.errors.full_messages.each do |msg| %>
+    <% @show.errors.full_messages.each do |msg| %>
       <li><%= msg %></li>
     <% end %>
     </ul>
@@ -24,7 +24,7 @@
  <%= f.collection_select :venue_id, Venue.all, :id, :name, :include_blank => true %><br><br>
 
  <p>Or Create a New Venue</p>
- <%= fields_for :venue, @show.venue do |v| %>
+ <%= fields_for :venue, @show.venue do |f| %>
     <%= render "venues/form", f: f %>
  <% end %>
 
