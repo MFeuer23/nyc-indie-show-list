@@ -20,7 +20,7 @@ Contact: <b><%= @venue.contact %></b>
 
 <b>Artists Who Have Played Here:</b>
 <ul>
-<% @artists.each do |artist| %>
+<% @artists.uniq.each do |artist| %>
   <li><%= link_to "#{artist.name}", artist_path(artist) %></li>
 <% end %>
 </ul>

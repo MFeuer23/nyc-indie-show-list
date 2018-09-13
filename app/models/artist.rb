@@ -7,8 +7,7 @@ class Artist < ApplicationRecord
   has_many :shows
   has_many :venues, through: :shows
   validates :email, uniqueness: true
-  validates :name, presence: true
-  
+
 
   mount_uploader :image, ImageUploader
 
