@@ -21,7 +21,7 @@ class ShowsController < ApplicationController
     redirect_to shows_path unless @show.artist == current_artist
     @show.venue = Venue.create(venue_params) unless @show.venue_id
     if @show.save
-      redirect_to show_path(@show)
+      redirect_to artist_show_path(@show.artist, @show)
     else
       render :new
     end
@@ -43,7 +43,7 @@ class ShowsController < ApplicationController
     @show.update(show_params)
     @show.venue = Venue.create(venue_params) unless @show.venue_id
     if @show.save
-      redirect_to show_path(@show)
+      artist_show_path(@show.artist, @show)
     else
       render :edit
     end

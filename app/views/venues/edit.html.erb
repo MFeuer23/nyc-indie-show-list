@@ -1,15 +1,7 @@
 <h1> Edit Venue Info </h1>
 <br>
 
-<% if @venue.errors.any? %>
-  <div id="error_explanation">
-    <ul>
-    <% @venue.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-    </ul>
-  </div>
-<% end %>
+<%= render "application/display_errors", object: @venue %>
 
  <br>
 <%= form_for @venue do |f| %>

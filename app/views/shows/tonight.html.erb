@@ -1,4 +1,4 @@
 <% @shows.each do |show| %>
-    <%= link_to "#{show.date.strftime("%B %d, %Y")} -- #{show.artist.name} at #{show.venue.name}", show_path(show)%>
+    <%= link_to "#{date_display(show)} -- #{show.artist.name} at #{show.venue.name}", artist_show_path(show.artist, show)%>
     <br>
   <% end %>
