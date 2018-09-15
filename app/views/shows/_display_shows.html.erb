@@ -1,0 +1,13 @@
+<b>Upcoming Shows:</b>
+<ul>
+<% @upcoming.each do |show| %>
+  <li><%= link_to "#{show.date.strftime("%B %d, %Y")} at #{show.venue.name}", show_path(show) %></li>
+<% end %>
+</ul>
+
+<b>Past Shows:</b>
+<ul>
+<% @past.each do |show| %>
+  <li><%= link_to "#{show.date.strftime("%B %d, %Y")} at #{show.venue.name}", show_path(show) %></li>
+<% end %>
+</ul>

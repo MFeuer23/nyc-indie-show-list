@@ -20,13 +20,11 @@ class ShowsController < ApplicationController
     @show = Show.new(show_params)
     redirect_to shows_path unless @show.artist == current_artist
     @show.venue = Venue.create(venue_params) unless @show.venue_id
-
     if @show.save
       redirect_to show_path(@show)
     else
       render :new
     end
-
   end
 
   def show
@@ -42,10 +40,8 @@ class ShowsController < ApplicationController
   def update
     @show = Show.find(params[:id])
     redirect_to show_path(@show) unless @show.artist == current_artist
-
     @show.update(show_params)
     @show.venue = Venue.create(venue_params) unless @show.venue_id
-
     if @show.save
       redirect_to show_path(@show)
     else
@@ -54,14 +50,11 @@ class ShowsController < ApplicationController
   end
 
   def destroy
-
     @show = Show.find(params[:id])
     @artist = @show.artist
     @show.destroy
     redirect_to artist_path(@artist)
   end
-
-
 
   private
 

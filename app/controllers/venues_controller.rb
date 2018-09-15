@@ -28,8 +28,8 @@ class VenuesController < ApplicationController
   end
 
   def edit
-      @venue = Venue.find(params[:id])
-      redirect_to venue_path(@venue) unless artist_signed_in?
+    @venue = Venue.find(params[:id])
+    redirect_to venue_path(@venue) unless artist_signed_in?
   end
 
   def update
