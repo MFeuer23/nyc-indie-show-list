@@ -1,8 +1,9 @@
 <h1>Show Calendar</h1>
 <br>
 <% @shows.each do |show| %>
+
   <% if show.date >= Date.today %>
-    <%= link_to "#{show.date.strftime("%B %d, %Y")} -- #{show.artist.name} at #{show.venue.name}", show_path(show)%>
+    <%= link_to "#{date_display(show)} -- #{show.artist.name} at #{show.venue.name}", show_path(show)%>
     <br>
   <% end %>
 
