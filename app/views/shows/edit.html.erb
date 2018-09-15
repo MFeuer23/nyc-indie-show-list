@@ -11,23 +11,10 @@
 <% end %>
 
 <%= form_for(@show) do |f| %>
-<%= f.hidden_field :artist_id %>
-
- <%= f.label :date %>
- <%= f.text_field :date, :placeholder => 'YY/MM/DD' %><br>
-
- <%= f.label :info %>
- <%= f.text_field :info %><br>
-
-
- <%= f.label :venue, "Select An Existing Venue" %><br>
- <%= f.collection_select :venue_id, Venue.all, :id, :name, :include_blank => true %><br><br>
-
- <p>Or Create a New Venue</p>
- <%= fields_for :venue, @show.venue do |f| %>
+  <%= render "form", f: f %>
+  <p>Or Create a New Venue</p>
+  <%= fields_for :venue, @show.venue do |f| %>
     <%= render "venues/form", f: f %>
- <% end %>
-
- <%= f.submit %>
-
+  <% end %>
+  <%= f.submit %>
 <% end %>
