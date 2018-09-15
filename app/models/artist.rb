@@ -20,4 +20,10 @@ class Artist < ApplicationRecord
       # user.skip_confirmation!
     end
   end
+
+  def self.search(params)
+    Artist.all.collect do |artist|
+      artist if artist.name.downcase.include?(params.downcase)
+    end
+  end
 end

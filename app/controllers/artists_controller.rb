@@ -6,12 +6,7 @@ class ArtistsController < ApplicationController
 
   def search
 
-    @artist = Artist.all.collect do |artist|
-      if artist.name.downcase.include?(params[:name].downcase)
-        artist
-      end
-
-    end
+    @artist = Artist.search(params[:name])
   end
 
   def show
