@@ -19,11 +19,8 @@ class ShowsController < ApplicationController
   def create
     @show = Show.new(show_params)
     redirect_to shows_path unless @show.artist == current_artist
-    if !@show.venue_id
-      @venue = Venue.create(venue_params)
-        @show.venue_id = @venue.id
-        @show.save
-      end
+    @show.venue = Venue.create(venue_params) unless @show.venue_id
+
     if @show.save
       redirect_to show_path(@show)
     else
@@ -47,12 +44,8 @@ class ShowsController < ApplicationController
     redirect_to show_path(@show) unless @show.artist == current_artist
 
     @show.update(show_params)
+    @show.venue = Venue.create(venue_params) unless @show.venue_id
 
-    if !@show.venue_id
-      @venue = Venue.create(venue_params)
-        @show.venue_id = @venue.id
-        @show.save
-      end
     if @show.save
       redirect_to show_path(@show)
     else
