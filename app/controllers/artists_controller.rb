@@ -5,24 +5,14 @@ class ArtistsController < ApplicationController
   end
 
   def search
-
     @artist = Artist.search(params[:name])
   end
 
   def show
     @artist = Artist.find(params[:id])
     @shows = @artist.shows.order(date: :asc)
-    @past = []
-    @upcoming = []
-
-    @shows.each do |show|
-      if show.date >= Date.today
-        @upcoming << show
-      else
-        @past << show
-      end
-    end
-
+    @upcoming = Show.upcoming(@shows)
+    @past = Show.past(@shows)
     @venues = @artist.venues.order(name: :asc).uniq
   end
 
@@ -42,6 +32,4 @@ class ArtistsController < ApplicationController
   def artist_params
     params.require(:artist).permit(:name, :bio, :genre, :image)
   end
-
-
 end

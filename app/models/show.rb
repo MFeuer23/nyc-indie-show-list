@@ -7,8 +7,11 @@ class Show < ApplicationRecord
   validates :date, presence: true
   validates :venue, presence: true
 
-  private
-    def invalid_venue(attributes)
-      binding.pry
-    end
+  def self.upcoming(show_array)
+    show_array.select { |show| show.date >= Date.today }
+  end
+
+  def self.past(show_array)
+    show_array.select { |show| show.date < Date.today }
+  end
 end
