@@ -1,5 +1,9 @@
 class ArtistsController < ApplicationController
 
+  def rock
+    @artists = Artist.rock
+  end
+
   def index
     @artists = Artist.all.order(name: :asc)
   end

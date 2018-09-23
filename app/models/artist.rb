@@ -26,4 +26,8 @@ class Artist < ApplicationRecord
       artist if artist.name.downcase.include?(params.downcase)
     end
   end
+
+  def self.rock
+    Artist.where(genre: "rock")
+  end
 end

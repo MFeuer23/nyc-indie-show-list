@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
     get '/shows/tonight' => 'shows#tonight'
-
+    get '/artists/rock' => 'artists#rock'
   devise_for :artists, controllers: { omniauth_callbacks: 'artists/omniauth_callbacks', registrations: 'registrations' }
   resources :artists, only: [:index, :show, :edit, :update] do
     # nested resource

@@ -2,11 +2,11 @@ class ShowsController < ApplicationController
 
 
   def tonight
-    @shows = Show.all.where("date =?", Date.today)
+    @shows = Show.where("date =?", Date.today)
   end
 
   def index
-    @shows = Show.all.order(date: :asc)
+    @shows = Show.order(date: :asc)
   end
 
   def new
