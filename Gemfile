@@ -20,22 +20,21 @@ gem 'uglifier', '>= 1.3.0'
 # gem 'therubyracer', platforms: :ruby
 
 # devise
-
 gem 'devise'
 
 #omniauth
-
 gem 'omniauth-facebook'
-
 # bootstrap
 
 gem 'bootstrap-sass', '3.3.7'
 gem 'jquery-rails'
 
 # File uploader
-
 gem 'carrierwave'
 gem 'mini_magick' # For different versions of an image
+
+#Active Model Serializer
+gem 'active_model_serializers'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
