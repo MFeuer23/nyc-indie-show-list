@@ -12,7 +12,8 @@
 <% end %>
 <br><br>
 
-<a href="#" class="js-view-shows">View Shows</a>
+<a href="#" class="js-view-shows" data-id="<%= @artist.id %>">View Shows</a><br>
+<div class="js-shows"></div>
 <%= render "shows/display_shows" %>
 
 <b>Venues Played:</b>
