@@ -1,8 +1,8 @@
 $(function () {
   $(".js-view-shows").on('click', function(e) {
-    e.preventDefaults;
+    e.preventDefault;
     let id = $(this).data("id");
-    jQuery.get("/artist/" + 6 + ".json", function(data) {
+    jQuery.get("/artists/" + 6 + ".json", function(data) {
       console.log(data);
     });
   });
