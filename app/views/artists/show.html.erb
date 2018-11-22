@@ -13,7 +13,11 @@
 <br><br>
 
 <a href="#" class="js-view-shows" data-id="<%= @artist.id %>">View Shows</a><br>
-<div class="js-shows"></div>
+
+<ul><div class="js-shows-upcoming"></div></ul>
+
+<ul><div class="js-shows-past"></div></ul>
+
 <%= render "shows/display_shows" %>
 
 <b>Venues Played:</b>
