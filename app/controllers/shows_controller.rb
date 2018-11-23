@@ -29,6 +29,10 @@ class ShowsController < ApplicationController
 
   def show
     @show = Show.find(params[:id])
+    respond_to do |format|
+      format.html {render :show}
+      format.json {render json: @show, status: 200}
+    end
   end
 
   def edit
