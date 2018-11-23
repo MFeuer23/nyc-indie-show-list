@@ -6,7 +6,13 @@ class ShowsController < ApplicationController
   end
 
   def index
-    @shows = Show.order(date: :asc)
+    if params[:artist_id]
+      @artist = Artist.find(params[:artist_id])
+      @shows = @artist.shows
+      render json: @shows, status: 200
+    else
+      @shows = Show.order(date: :asc)
+    end
   end
 
   def new
