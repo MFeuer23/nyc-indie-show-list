@@ -1,7 +1,14 @@
 class VenuesController < ApplicationController
 
   def index
-    @venues = Venue.all.order(name: :asc)
+
+    if params[:artist_id]
+      @artist = Artist.find(params[:artist_id])
+      @venues = @artist.venues
+      render json: @venues, status: 200
+    else
+      @venues = Venue.all.order(name: :asc)
+    end
   end
 
   def new
@@ -25,6 +32,10 @@ class VenuesController < ApplicationController
     @upcoming = Show.upcoming(@shows)
     @past = Show.past(@shows)
     @artists = @venue.artists
+    respond_to do |format|
+      format.html {render :show}
+      format.json {render json: @venue, status: 200}
+    end
   end
 
   def edit
