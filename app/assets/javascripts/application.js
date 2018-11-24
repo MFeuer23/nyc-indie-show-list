@@ -15,4 +15,5 @@
 //= require bootstrap-sprockets
 //= require turbolinks
 //= require artist_shows_index
+//= require show_show
 //= require_tree .
