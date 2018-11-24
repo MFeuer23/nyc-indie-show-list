@@ -2,25 +2,23 @@ $(function () {
   $(".js-view-shows").on('click', function(e) {
     e.preventDefault();
     let id = $(this).data("id");
-    jQuery.get("/artists/" + id + ".json", function(data) {
+    jQuery.get("/artists/" + id + "/shows.json", function(data) {
       $(".js-shows-upcoming").html("<h4>" + "Upcoming Shows" + "</h4>")
       $(".js-shows-past").html("<h4>" + "Past Shows" + "</h4>")
       console.log(data)
-      $.each(data["shows"], function(index, value) {
+      $.each(data, function(index, value) {
         let date = new Date(value["date"])
         if (date >= new Date()) {
-          $(".js-shows-upcoming").append("<li>" + formatDate(date) + "</li>");
+          $(".js-shows-upcoming").append("<li>" + formatDate(date) + " at " + value["venue"]["name"] + "</li>");
         } else {
-          $(".js-shows-past").append("<li>" + formatDate(date) + "</li>");
+          $(".js-shows-past").append("<li>" + formatDate(date) + " at " + value["venue"]["name"] + "</li>");
         }
-        $.get("/shows/" + value["id"] + ".json", function(data) {
-          console.log(data)
-        })
+
       })
     });
   });
 });
-                                                    
+
 function formatDate(date) {
   var monthNames = [
     "January", "February", "March",
