@@ -1,12 +1,14 @@
 <button class="js-next" data-id="<%= @show.id %>">Next Show</button>
-<h3><div id="artist_name"><%= @show.artist.name %></div>'s Show at <div id="venue_name"><%= @show.venue.name %></div></h3>
-<p><b>Date: </b><div id="show_date"><%= @show.date.strftime("%B %d, %Y") %></div></p>
-<p><b>Info: </b><div id="show_info"><%= @show.info %></div></p>
-<p><b>Location: </b><div id="venue_address"><%= @show.venue.address %></div></p>
+<h3><span id="artist_name"><%= @show.artist.name %></span>'s Show at <span id="venue_name"><%= @show.venue.name %></span></h3>
+<p><b>Date: </b><span id="show_date"><%= @show.date.strftime("%B %d, %Y") %></span></p>
+<p><b>Info: </b><span id="show_info"><%= @show.info %></span></p>
+<p><b>Location: </b><span id="venue_address"><%= @show.venue.address %></span></p>
 <br>
 
 <% if artist_signed_in? %>
-  <%= link_to "Edit Show Info", edit_artist_show_path(@show.artist, @show)%> <br>
   <%= link_to "Go Back to Profile", artist_path(@show.artist)%>
-  <%= button_to('Delete Show', show_path(@show), :method => :delete, :class => 'well')%>
+  <div id="show_specific_links">
+    <%= link_to "Edit Show Info", edit_artist_show_path(@show.artist, @show)%> <br>
+    <%= button_to('Delete Show', show_path(@show), :method => :delete, :class => 'well')%>
+  </div>
 <% end %>
