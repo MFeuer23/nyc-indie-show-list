@@ -1,5 +1,6 @@
 $(function () {
-  $(".js-next").on("click", function() {
+  $(".js-next").on("click", function(e) {
+    e.preventDefault();
     let nextId = parseInt($(".js-next").attr("data-id")) + 1;
     $.get("/shows/" + nextId + ".json", function(data) {
       $("#artist_name").text(data["artist"]["name"])
