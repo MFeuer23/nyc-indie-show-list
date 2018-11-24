@@ -18,10 +18,3 @@
 
 <button class="js-view-venues" data-id="<%= @artist.id %>">View Venues Played</button><br>
 <ul><div class="js-venues"></div></ul><br>
-
-<b>Venues Played:</b>
-<ul>
-<% @venues.each do |venue| %>
-  <li><%= link_to "#{venue.name}", venue_path(venue) %></li>
-<% end %>
-</ul>
