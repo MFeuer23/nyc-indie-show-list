@@ -1,5 +1,5 @@
 <button class="js-next" data-id="<%= @show.id %>">Next Show</button>
-<h3><div id="artist_name"><%= @show.artist.name %></div>'s Show at <div id="show_venue_name"><%= @show.venue.name %></div></h3>
+<h3><div id="artist_name"><%= @show.artist.name %></div>'s Show at <div id="venue_name"><%= @show.venue.name %></div></h3>
 <p><b>Date: </b><div id="show_date"><%= @show.date.strftime("%B %d, %Y") %></div></p>
 <p><b>Info: </b><div id="show_info"><%= @show.info %></div></p>
 <p><b>Location: </b><div id="venue_address"><%= @show.venue.address %></div></p>
