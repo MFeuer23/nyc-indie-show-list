@@ -16,4 +16,5 @@
 //= require turbolinks
 //= require artist_shows_index
 //= require show_show
+//= require artist_venues_shows
 //= require_tree .
