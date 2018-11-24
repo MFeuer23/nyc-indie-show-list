@@ -9,9 +9,9 @@ $(function () {
       $.each(data, function(index, value) {
         let date = new Date(value["date"])
         if (date >= new Date()) {
-          $(".js-shows-upcoming").append("<li>" + formatDate(date) + " at " + value["venue"]["name"] + "</li>");
+          $(".js-shows-upcoming").append("<li>" + "<a href='/shows/" + value["id"] + "'>" + formatDate(date) + " at " + value["venue"]["name"] + "</a>" + "</li>");
         } else {
-          $(".js-shows-past").append("<li>" + formatDate(date) + " at " + value["venue"]["name"] + "</li>");
+          $(".js-shows-past").append("<li>" + "<a href='/shows/" + value["id"] + "'>" + formatDate(date) + " at " + value["venue"]["name"] + "</a>" + "</li>");
         }
 
       })
