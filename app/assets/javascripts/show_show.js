@@ -8,6 +8,7 @@ $(function () {
       $("#show_date").text(data["date"])
       $("#show_info").text(data["info"])
       $("#venue_address").text(data["venue"]["address"])
+      $("#show_specific_links").text("")
       // re-set the id to current on the link
       $(".js-next").attr("data-id", data["id"]);
     });
