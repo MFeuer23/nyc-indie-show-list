@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :artists, only: [:index, :show, :edit, :update] do
     # nested resource
     resources :shows, only: [:show, :index, :new, :create, :edit, :update]
+    resources :venues, only: [:index]
   end
     resources :venues
     resources :shows
