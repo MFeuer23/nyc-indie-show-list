@@ -1,4 +1,4 @@
-$(function () {
+$(document).on('turbolinks:load', function () {
   $(".js-next").on("click", function(e) {
     e.preventDefault();
     let nextId = parseInt($(".js-next").attr("data-id")) + 1;

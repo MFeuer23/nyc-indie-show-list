@@ -1,4 +1,4 @@
-$(function () {
+$(document).on('turbolinks:load', function () {
   $(".js-view-shows").on('click', function(e) {
     e.preventDefault();
     let id = $(this).data("id");
