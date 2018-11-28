@@ -18,6 +18,7 @@ class ArtistsController < ApplicationController
     @upcoming = Show.upcoming(@shows)
     @past = Show.past(@shows)
     @venues = @artist.venues.order(name: :asc).uniq
+    @show = Show.new
     respond_to do |format|
       format.html {render :show}
       format.json {render json: @artist, status: 200}
