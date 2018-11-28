@@ -17,4 +17,5 @@
 //= require artist_shows_index
 //= require show_show
 //= require artist_venues_shows
+//= require new_show
 //= require_tree .
