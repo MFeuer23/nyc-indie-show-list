@@ -17,4 +17,26 @@
 <ul><div class="js-shows-past"></div></ul>
 
 <button class="js-view-venues" data-id="<%= @artist.id %>">View Venues Played</button><br>
-<ul><div class="js-venues"></div></ul><br>
+<ul><div class="js-venues"></div></ul>
+
+<% if @artist == current_artist %>
+  <button class="js-new-show">Post a New Show</button>
+<% end %>
+
+<div class="js-form-render">
+  <h3>Post a New Show</h3>
+
+  <%= render "application/display_errors", object: @show %>
+
+  <%= form_for(@show) do |f| %>
+    <%= render "shows/form", f: f %>
+    <p>Or Create a New Venue</p>
+    <%= fields_for :venue, @show.venue do |f| %>
+      <%= render "venues/form", f: f %>
+    <% end %>
+    <%= f.submit %>
+  <% end %>
+
+</div>
+<br>
+<br>
