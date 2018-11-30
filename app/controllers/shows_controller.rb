@@ -24,13 +24,13 @@ class ShowsController < ApplicationController
 
   def create
     @show = Show.new(show_params)
-    redirect_to shows_path unless @show.artist == current_artist
-    @show.venue = Venue.create(venue_params) unless @show.venue_id
-    if @show.save
-      redirect_to artist_show_path(@show.artist, @show)
-    else
-      render :new
-    end
+    #@show.venue = Venue.create(venue_params) unless @show.venue_id
+    render json: @show, status: 201
+    # if @show.save
+    #   redirect_to artist_show_path(@show.artist, @show) and return
+    # else
+    #   redirect_to new_show_path and return
+    # end
   end
 
   def show
