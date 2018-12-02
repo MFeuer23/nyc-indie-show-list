@@ -5,11 +5,17 @@ $(document).on('turbolinks:load', function () {
       var values = $(this).serialize();
       console.log(values);
 
-      $.post('/shows.js', values, function(data) {
-        console.log(data)
-        debugger;
-        let jsShow = new Show(data)
-
+      $.post('/shows.js', values, function(showData) {
+        if (!showData["venue"]) {
+          $.post('/venues.js', values, function(venueData) {
+            showData["venue"] = new Venue(showData, venueData)
+            let jsShow = new Show(showData)
+            console.log(jsShow)
+          })
+        } else {
+          let jsShow = new Show(showData)
+          console.log(jsShow)
+        }
       });
 
 
@@ -37,6 +43,14 @@ $(document).on('turbolinks:load', function () {
 
         return monthNames[monthIndex] + ' ' + day + ', ' + year;
     }
+  }
 
-
+  class Venue {
+    constructor(showData, venueData) {
+      this.name = venueData["name"]
+      this.address = venueData["address"]
+      this.contact = venueData["contact"]
+      this.artist = showData["artist"]
+      this.show = showData
+    }
   }
