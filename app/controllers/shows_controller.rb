@@ -24,13 +24,16 @@ class ShowsController < ApplicationController
 
   def create
     @show = Show.new(show_params)
-    #@show.venue = Venue.create(venue_params) unless @show.venue_id
     render json: @show, status: 201
-    # if @show.save
+    @show.venue = Venue.create(venue_params) unless @show.venue_id
+
+
+    if @show.save
+      flash[:notice] = "saved to database"
     #   redirect_to artist_show_path(@show.artist, @show) and return
-    # else
-    #   redirect_to new_show_path and return
-    # end
+    else
+       flash[:notice] = @show.errors.full_messages
+    end
   end
 
   def show
