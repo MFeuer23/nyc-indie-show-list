@@ -17,13 +17,14 @@ class VenuesController < ApplicationController
   end
 
   def create
-    redirect_to venues_path unless artist_signed_in?
+    # redirect_to venues_path unless artist_signed_in?
     @venue = Venue.new(venue_params)
-    if @venue.save
-      redirect_to venue_path(@venue)
-    else
-      render :new
-    end
+    render json: @venue, status: 201
+    # if @venue.save
+    #   redirect_to venue_path(@venue)
+    # else
+    #   render :new
+    # end
   end
 
   def show
