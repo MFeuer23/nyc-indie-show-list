@@ -25,9 +25,9 @@ function formatDate(date) {
     "November", "December"
   ];
 
-  let day = date.getDate();
-  let monthIndex = date.getMonth();
-  let year = date.getFullYear();
+  let day = date.getUTCDate();
+  let monthIndex = date.getUTCMonth();
+  let year = date.getUTCFullYear();
 
   return monthNames[monthIndex] + ' ' + day + ', ' + year;
 }
