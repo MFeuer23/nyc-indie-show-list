@@ -26,8 +26,6 @@
 <div class="js-form-render">
   <h3>Post a New Show</h3>
 
-  <%= render "application/display_errors", object: @show %>
-
   <%= form_for(@show) do |f| %>
     <%= render "shows/form", f: f %>
     <p>Or Create a New Venue</p>
@@ -38,6 +36,10 @@
   <% end %>
 
 </div>
+
+<% if flash[:notice] %>
+  <div class="notice"><%= flash[:notice] %></div>
+<% end %>
 
 <div class="js-posted-object"></div>
 <br>
