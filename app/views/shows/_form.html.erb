@@ -1,4 +1,4 @@
-<%= f.hidden_field :artist_id, :value => params[:id] %>
+<%= f.hidden_field :artist_id, :value => params[:artist_id] || params[:id]%>
 
  <%= f.label :date %>
  <%= f.text_field :date, :placeholder => 'YYYY/MM/DD' %><br>
