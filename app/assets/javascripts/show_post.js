@@ -8,7 +8,7 @@ $(document).on('turbolinks:load', function () {
 
       $.post('/shows.json', values, function(showData) {
         if (!showData["venue"]) {
-          $.post('/venues.js', values, function(venueData) {
+          $.post('/venues.json', values, function(venueData) {
             showData["venue"] = new Venue(showData, venueData)
             jsShow = new Show(showData)
             jsShow.appendToDom("js-posted-object")
