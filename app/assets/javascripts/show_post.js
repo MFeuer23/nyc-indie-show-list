@@ -7,8 +7,10 @@ $(document).on('turbolinks:load', function () {
       console.log(values);
 
       $.post('/shows.json', values, function(showData) {
-        if (!showData["venue"]) {
+        if (!showData["date"]) {$(".js-errors").append("No Date Entered. <a href='" + `${showData["artist"]["id"]}` + "'>Try Again.</a><br>")}
+        if (!showData["venue"]["id"]) {
           $.post('/venues.json', values, function(venueData) {
+            if (venueData["name"] == "") {$(".js-errors").append("No Venue Entered. <a href='" + `${showData["artist"]["id"]}` + "'>Try Again.</a>")}
             showData["venue"] = new Venue(showData, venueData)
             jsShow = new Show(showData)
             jsShow.appendToDom("js-posted-object")
