@@ -25,7 +25,7 @@
 
 <div class="js-form-render">
   <h3>Post a New Show</h3>
-
+    <div class="js-errors"></div>
   <%= render "application/display_errors", object: @show %>
 
   <%= form_for(@show, html: {id: "js-form"}) do |f| %>
