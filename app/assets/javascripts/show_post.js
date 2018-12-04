@@ -1,12 +1,12 @@
 $(document).on('turbolinks:load', function () {
-  $("form").on("submit", function(e) {
+  $("#js-form").on("submit", function(e) {
     e.preventDefault();
 
       let values = $(this).serialize();
       let jsShow;
       console.log(values);
 
-      let showPosting = $.post('/shows.js', values, function(showData) {
+      $.post('/shows.json', values, function(showData) {
         if (!showData["venue"]) {
           $.post('/venues.js', values, function(venueData) {
             showData["venue"] = new Venue(showData, venueData)
@@ -18,10 +18,7 @@ $(document).on('turbolinks:load', function () {
           console.log(jsShow)
           jsShow.appendToDom("js-posted-object")
         }
-        console.log(jsShow)
       });
-      showPosting.done(console.log(jsShow))
-
     });
   });
 
