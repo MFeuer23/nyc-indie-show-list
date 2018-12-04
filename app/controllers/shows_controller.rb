@@ -28,11 +28,7 @@ class ShowsController < ApplicationController
       format.json {render json: @show, status: 201}
       @show.venue = Venue.create(venue_params) unless @show.venue_id
 
-
-
-
       if @show.save
-
         format.html {render :show}
       else
         format.html {render :new}
