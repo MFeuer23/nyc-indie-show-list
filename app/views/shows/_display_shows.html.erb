@@ -1,13 +1,17 @@
-<b>Upcoming Shows:</b>
-<ul>
-<% @upcoming.each do |show| %>
-  <li><%= link_to "#{date_display(show)} at #{show.venue.name}", artist_show_path(show.artist, show) %></li>
+<b>Upcoming Shows:</b><br>
+<% if @upcoming %>
+  <ul>
+  <% @upcoming.each do |show| %>
+    <li><%= link_to "#{date_display(show)} at #{show.venue.name}", artist_show_path(show.artist, show) %></li>
+  <% end %>
+  </ul>
 <% end %>
-</ul>
 
-<b>Past Shows:</b>
-<ul>
-<% @past.each do |show| %>
-  <li><%= link_to "#{date_display(show)} at #{show.venue.name}", artist_show_path(show.artist, show) %></li>
+<b>Past Shows:</b><br>
+<% if @past %>
+  <ul>
+  <% @past.each do |show| %>
+    <li><%= link_to "#{date_display(show)} at #{show.venue.name}", artist_show_path(show.artist, show) %></li>
+  <% end %>
+  </ul>
 <% end %>
-</ul>

@@ -4,13 +4,15 @@ Contact: <b><%= @venue.contact %></b>
 <br>
 <br>
 <%= render "shows/display_shows" %>
-
+<br>
 <b>Artists Who Have Played Here:</b>
-<ul>
-<% @artists.uniq.each do |artist| %>
-  <li><%= link_to "#{artist.name}", artist_path(artist) %></li>
+<% if @artists %>
+  <ul>
+  <% @artists.uniq.each do |artist| %>
+    <li><%= link_to "#{artist.name}", artist_path(artist) %></li>
+  <% end %>
+  </ul>
 <% end %>
-</ul>
 
 <br>
 <% if artist_signed_in? %>
