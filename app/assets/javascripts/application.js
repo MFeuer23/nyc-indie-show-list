@@ -19,4 +19,5 @@
 //= require artist_venues_shows
 //= require new_show
 //= require show_post
+//= require shows_crab_shack
 //= require_tree .
