@@ -1,8 +1,9 @@
 $(document).on('turbolinks:load', function () {
   $("#js-form").on("submit", function(e) {
     e.preventDefault();
-
+      this[1]["value"] = $('meta[name="csrf-token"]').attr('content')
       let values = $(this).serialize();
+
       let jsShow;
       console.log(values);
 
