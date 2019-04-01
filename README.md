@@ -1,5 +1,5 @@
 # nyc-indie-show-list
-![](/app/assets/images/Screenshot.png)
+![](/app/assets/images/Screenshot.jpg)
 
 ## Usage
 
