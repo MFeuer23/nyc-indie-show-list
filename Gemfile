@@ -8,6 +8,10 @@ end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1'
+gem "railties", ">= 5.2.2.1"
+gem "actionview", ">= 5.2.2.1"
+gem "nokogiri", ">= 1.8.5"
+
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use Puma as the app server
@@ -21,7 +25,7 @@ gem 'uglifier', '>= 1.3.0'
 
 # devise
 
-gem 'devise'
+gem "devise", ">= 4.6.0"
 
 #omniauth
 
@@ -29,7 +33,7 @@ gem 'omniauth-facebook'
 
 # bootstrap
 
-gem 'bootstrap-sass', '3.3.7'
+gem "bootstrap-sass", ">= 3.4.1"
 gem 'jquery-rails'
 
 # File uploader
