@@ -1,6 +1,5 @@
-# README
-
 # nyc-indie-show-list
+![](/app/assets/images/Screenshot.png)
 
 ## Usage
 
